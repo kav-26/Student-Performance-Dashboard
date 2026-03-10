@@ -140,43 +140,46 @@ elif page == "Student Drill-Down":
     st.info(f"📌 Risk Level: **{student['Risk_Level']}**")
 
 # ---------------- VISUAL ANALYSIS ----------------
+# ---------------- VISUAL ANALYSIS ----------------
 elif page == "Visual Analysis":
     st.title("📈 Visual Analysis")
 
+    # 1. Attendance vs Final Grade
     st.subheader("🎯 Attendance vs Final Grade")
     fig1 = px.scatter(
         filtered_data,
         x="Attendance_Percentage",
         y="Final_Grade",
         color="Risk_Level",
-        hover_data=["Student_ID"]
+        hover_data=["Student_ID"],
+        title="Attendance vs Final Grade by Risk Level"
     )
     st.plotly_chart(fig1, use_container_width=True)
 
+    # 2. Study Hours vs Final Grade
     st.subheader("📘 Study Hours vs Final Grade")
     fig2 = px.scatter(
         filtered_data,
         x="Study_Hours_per_Week",
         y="Final_Grade",
-        color="Risk_Level"
+        color="Risk_Level",
+        title="Study Hours vs Final Grade"
     )
     st.plotly_chart(fig2, use_container_width=True)
 
+    # 3. Average Grade by Risk Level
     st.subheader("📊 Average Grade by Risk Level")
-    avg = (
-        filtered_data
-        .groupby("Risk_Level")["Final_Grade"]
-        .mean()
-        .reset_index()
-    )
+    avg = filtered_data.groupby("Risk_Level")["Final_Grade"].mean().reset_index()
     fig3 = px.bar(
         avg,
         x="Risk_Level",
         y="Final_Grade",
-        color="Risk_Level"
+        color="Risk_Level",
+        title="Average Grade by Risk Level"
     )
     st.plotly_chart(fig3, use_container_width=True)
 
+    # 4. When Averages Mislead (BOX PLOT – faculty loved)
     st.subheader("🎭 When Averages Mislead")
     fig4 = px.box(
         filtered_data,
@@ -187,7 +190,6 @@ elif page == "Visual Analysis":
         title="Grade Spread Within Each Risk Level"
     )
     st.plotly_chart(fig4, use_container_width=True)
-
 # ---------------- HEATMAP ----------------
 elif page == "Performance Heatmap":
     st.title("🔥 Performance Correlation Heatmap")
