@@ -75,7 +75,7 @@ The analysis includes:
 - Seaborn
 - Matplotlib
 - Plotly
-- Streamlit / Power BI
+- Streamlit 
 
 ## Conclusion
 The dashboard demonstrates how data visualization can improve understanding of student academic performance and support data-driven academic decision making.
