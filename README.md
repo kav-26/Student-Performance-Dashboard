@@ -1,237 +1,184 @@
 # 🎓 Student Performance Analytics Dashboard
 
-An interactive **Data Analytics and Predictive Modeling dashboard** built with Python and Streamlit to analyze student academic performance, identify risk patterns, visualize relationships between academic factors, and support data-driven decision-making.
+An interactive web-based dashboard built with **Python and Streamlit** to analyze student academic performance, identify at-risk students, explore relationships between academic factors, and provide interactive visual insights.
+
+🔗 **Live Demo:** https://kav-26-student-performance-dashboard-app-ghfwnu.streamlit.app/
 
 ---
 
 ## 📌 Project Overview
 
-Educational institutions generate large amounts of student academic and engagement data. However, raw data alone does not provide an easy way to identify performance patterns, detect students who may require intervention, or understand the factors associated with academic outcomes.
+Educational institutions collect large amounts of information about student attendance, study habits, LMS engagement, internal assessments, and final grades. However, raw academic data can be difficult to interpret without an interactive analytical interface.
 
-This project transforms student performance data into meaningful insights using:
+The **Student Performance Analytics Dashboard** transforms student academic data into an interactive application that allows users to:
 
-* Exploratory Data Analysis (EDA)
-* Descriptive and statistical analysis
-* Correlation analysis
-* Data preprocessing
-* Data visualization
-* Predictive modeling using Linear Regression
-* Interactive Streamlit dashboard
-* Risk classification
-* Role-based authentication and authorization
+* Monitor overall academic performance
+* Identify students who may require additional academic attention
+* Analyze relationships between attendance, study hours, LMS usage, internal marks, and final grades
+* Filter students based on multiple criteria
+* View individual student performance
+* Explore performance patterns using interactive visualizations
+* Access administrative features through role-based authorization
 
-The dashboard enables users to explore student performance interactively and identify important relationships between attendance, study time, LMS engagement, internal marks, and final grades.
+The application is deployed using **Streamlit Cloud** and includes application-level authentication and security controls.
 
 ---
 
 ## 🎯 Problem Statement
 
-Educational institutions often have large datasets containing attendance, study hours, LMS engagement, internal marks, and final grades.
+Academic performance depends on multiple factors such as attendance, study time, LMS engagement, and internal assessment marks.
 
-Without effective analytical tools, it can be difficult to:
+Without an analytical dashboard, it can be difficult to:
 
-* Identify students at academic risk
-* Understand factors affecting final grades
-* Detect relationships between engagement and performance
-* Compare performance across different student groups
-* Convert raw academic data into actionable insights
+* Identify students who may be at academic risk
+* Understand performance patterns across students
+* Compare different academic indicators
+* Explore relationships between engagement and final grades
+* Monitor individual student performance
+* Convert raw academic records into understandable visual insights
 
-This project addresses these challenges through an interactive analytics and visualization platform.
+This project addresses these challenges through an interactive dashboard.
 
 ---
 
 ## 🎯 Objectives
 
+The main objectives of this project are:
+
 * Analyze student academic performance using Python
-* Perform Exploratory Data Analysis (EDA)
-* Identify relationships between academic and engagement variables
-* Analyze correlations between student engagement and final grades
-* Detect potential at-risk students
-* Visualize performance patterns using interactive charts
-* Apply statistical techniques to understand the dataset
-* Build a predictive model using Linear Regression
-* Create an interactive Streamlit dashboard
-* Implement secure authentication and role-based authorization
+* Explore relationships between academic variables
+* Identify potentially at-risk students
+* Provide interactive data visualizations
+* Allow users to filter and explore student records
+* Provide individual student drill-down analysis
+* Display correlation between important academic factors
+* Present key analytical observations
+* Implement authentication and role-based authorization
+* Deploy the application as a publicly accessible web application
 
 ---
 
 ## 📊 Dataset
 
-The dataset contains student academic and engagement-related attributes, including:
+The dashboard uses a student academic performance dataset containing academic and engagement-related information.
 
-| Feature               | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| Student_ID            | Unique identifier for each student              |
-| Gender                | Student gender                                  |
-| Attendance_Percentage | Percentage of classes attended                  |
-| Study_Hours_per_Week  | Weekly study hours                              |
-| LMS_Hours             | Time spent using the Learning Management System |
-| Internal_Marks        | Internal assessment marks                       |
-| Final_Grade           | Final academic grade                            |
-
----
-
-## 🔍 Exploratory Data Analysis
-
-Exploratory Data Analysis was performed to understand the structure, distribution, and relationships within the dataset.
-
-### EDA includes:
-
-* Dataset structure and data types
-* Missing-value analysis
-* Duplicate detection
-* Descriptive statistics
-* Distribution analysis
-* Outlier detection
-* Univariate analysis
-* Bivariate analysis
-* Correlation analysis
-* Feature relationships
-* Performance comparison across risk levels
-
-### Statistical Analysis
-
-Key statistical techniques include:
-
-* Mean
-* Median
-* Standard deviation
-* Minimum and maximum values
-* Quartiles
-* Interquartile Range (IQR)
-* Correlation analysis
-
-These techniques help identify trends, variation, and relationships within the student performance data.
+| Feature                 | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `Student_ID`            | Unique identifier for each student              |
+| `Gender`                | Student gender                                  |
+| `Attendance_Percentage` | Percentage of classes attended                  |
+| `Study_Hours_per_Week`  | Weekly study hours                              |
+| `LMS_Hours`             | Time spent using the Learning Management System |
+| `Internal_Marks`        | Internal assessment marks                       |
+| `Final_Grade`           | Final academic grade                            |
 
 ---
 
-## 🧹 Data Preprocessing
+## 🚦 Risk Classification
 
-The following preprocessing techniques were used as part of the analysis:
-
-* Detection and removal of duplicate records
-* Handling missing values
-* Outlier detection using the IQR method
-* Feature transformation and normalization where required
-* Feature engineering
-* Creation of an Engagement Score
-* Preparation of numerical variables for modeling
-
----
-
-## 📈 Data Visualization
-
-Multiple visualization techniques were used to communicate analytical findings effectively.
-
-### Visualization libraries
-
-* **Matplotlib**
-* **Seaborn**
-* **Plotly**
-
-### Visualizations include:
-
-* Histograms
-* Scatter plots
-* Box plots
-* Bar charts
-* Correlation heatmaps
-* Performance distributions
-* Risk-level comparisons
-
-These visualizations help identify patterns that may not be immediately visible from raw numerical data.
-
----
-
-## 🤖 Predictive Modeling
-
-### Linear Regression
-
-Linear Regression was used as a predictive modeling technique to analyze the relationship between academic/engagement factors and student final grades.
-
-The modeling workflow includes:
-
-1. Data preparation
-2. Feature selection
-3. Train-test split
-4. Model training
-5. Prediction
-6. Model evaluation
-7. Interpretation of relationships between variables
-
-The model helps demonstrate how academic and engagement-related factors can be used to estimate student performance.
-
----
-
-## 🚦 Student Risk Classification
-
-Students are categorized into three risk levels based on academic performance and attendance:
+The application classifies students into three risk categories using **final grade and attendance**.
 
 ### 🔴 High Risk
 
-Students with:
+A student is classified as **High Risk** when:
 
-* Final Grade below 50, **or**
-* Attendance below 60%
+* Final Grade is below `50`, **or**
+* Attendance is below `60%`
 
 ### 🟡 Medium Risk
 
-Students with:
+A student is classified as **Medium Risk** when:
 
-* Final Grade below 65, **or**
-* Attendance below 75%
+* Final Grade is below `65`, **or**
+* Attendance is below `75%`
 
 ### 🟢 Low Risk
 
-Students who do not fall into the High or Medium Risk categories.
+Students who do not meet the High Risk or Medium Risk conditions are classified as **Low Risk**.
 
-This classification helps highlight students who may require additional academic attention.
+This classification provides a simple early-warning mechanism for identifying students who may need additional attention.
 
 ---
 
-## 📊 Dashboard Features
+# 📊 Dashboard Features
 
-The Streamlit dashboard provides several interactive analytical views.
+The application provides multiple analytical views.
 
-### 🏠 Overview
+## 🏠 1. Overview
 
-Provides a high-level summary of:
+The Overview page provides a high-level summary of the selected student population.
 
-* Total students
-* High-risk students
-* Average grade
+### Displays:
+
+* Total number of students
+* Number of high-risk students
+* Average final grade
 * Grade distribution by risk level
 
-### 🚨 At-Risk Analysis
+The page also provides interactive filtering so that users can analyze specific groups of students.
 
-Displays students identified as:
+---
 
-* High Risk
-* Medium Risk
+## 🚨 2. At-Risk Analysis
 
-along with relevant academic and engagement indicators.
+The At-Risk Analysis page focuses on students classified as:
 
-### 🔍 Student Drill-Down
+* 🔴 High Risk
+* 🟡 Medium Risk
 
-Allows users to select an individual student and view:
+The dashboard displays relevant information such as:
 
+* Student ID
+* Gender
 * Attendance
 * Study hours
 * Final grade
 * Risk level
 
-### 📈 Visual Analysis
+This allows users to quickly identify students who may require additional academic attention.
 
-Provides interactive visualizations including:
+---
 
-* Attendance vs Final Grade
-* Study Hours vs Final Grade
-* Average Grade by Risk Level
-* Grade distribution using Box Plots
+## 🔍 3. Student Drill-Down
 
-### 🔥 Performance Heatmap
+The Student Drill-Down page allows users to select an individual student and examine their performance.
 
-Displays correlations between:
+For each selected student, the dashboard displays:
+
+* Attendance percentage
+* Study hours per week
+* Final grade
+* Risk level
+
+This provides a simple individual-level view in addition to the overall analysis.
+
+---
+
+## 📈 4. Visual Analysis
+
+The Visual Analysis page contains interactive Plotly visualizations.
+
+### Attendance vs Final Grade
+
+Shows the relationship between student attendance and final grade.
+
+### Study Hours vs Final Grade
+
+Shows the relationship between weekly study hours and final grade.
+
+### Average Grade by Risk Level
+
+Compares the average final grade across the different risk categories.
+
+### Grade Distribution by Risk Level
+
+Box plots are used to visualize the distribution and spread of grades within each risk category.
+
+---
+
+## 🔥 5. Performance Correlation Heatmap
+
+The Performance Heatmap displays correlations between important numerical academic variables:
 
 * Attendance
 * Study Hours
@@ -239,15 +186,49 @@ Displays correlations between:
 * Internal Marks
 * Final Grade
 
-### 🧠 Insights
-
-Summarizes important findings and early-warning indicators from the analysis.
+This helps users explore how different academic factors are related to one another.
 
 ---
 
-## 🔐 Authentication & Security
+## 🧠 6. Insights
 
-The dashboard also implements basic application-level security controls.
+The Insights page summarizes important observations from the dashboard.
+
+Examples include:
+
+* Attendance should not be considered as the only indicator of academic success
+* Study time and LMS engagement provide additional context
+* Medium-risk students can be important intervention targets
+* Multiple academic indicators provide a broader understanding of student performance
+
+The page also highlights early-warning indicators such as:
+
+* Attendance below `75%`
+* Final grades below `65`
+* Low LMS engagement
+
+---
+
+# 🔎 Interactive Filtering
+
+The dashboard provides multiple filters through the sidebar.
+
+Users can filter the dataset by:
+
+* Gender
+* Risk Level
+* Attendance range
+* Final Grade range
+
+All applicable dashboard views update based on the selected filters.
+
+This allows users to interactively explore different segments of the student population.
+
+---
+
+# 🔐 Authentication & Security
+
+The application includes application-level authentication and authorization.
 
 ### Security Features
 
@@ -255,77 +236,94 @@ The dashboard also implements basic application-level security controls.
 * Password hashing using **bcrypt**
 * JWT-based authentication
 * JWT token expiration
-* Role-based access control (RBAC)
+* Role-Based Access Control (RBAC)
 * Server-side authorization checks
 * Generic authentication error messages
-* Externalized security secrets using Streamlit Secrets
+* Externalized secrets using Streamlit Secrets
 * Sensitive configuration excluded from version control
 
-### User Roles
+### Authentication Flow
 
-| Role          | Dashboard     | Student Analytics | Admin Panel |
-| ------------- | ------------- | ----------------- | ----------- |
-| Administrator | ✅ Full Access | ✅                 | ✅           |
-| Analyst       | ✅ Full Access | ✅                 | ❌           |
-
-The Administration page is protected using server-side role validation, so only users with the `admin` role can access it.
-
-### Security Configuration
-
-JWT tokens are configured with a limited lifetime to reduce the risk associated with long-lived sessions.
-
-Sensitive credentials and JWT secrets are stored outside the source code using Streamlit Secrets and are not committed to the public repository.
+```text
+User
+  │
+  ▼
+Login
+  │
+  ▼
+Credential Verification
+  │
+  ▼
+bcrypt Password Verification
+  │
+  ▼
+JWT Access Token
+  │
+  ▼
+Token Validation
+  │
+  ▼
+Authenticated Dashboard
+```
 
 ---
 
-## 🖥️ Admin Panel
+# 👥 User Roles
 
-The administrator panel provides system and access information, including:
+The application currently supports two roles.
 
-* Current authenticated user
-* User role
+| Role          | Dashboard     | Student Analytics | Admin Panel  |
+| ------------- | ------------- | ----------------- | ------------ |
+| Administrator | ✅ Full Access | ✅ Allowed         | ✅ Allowed    |
+| Analyst       | ✅ Full Access | ✅ Allowed         | ❌ Restricted |
+
+The Administration page performs a server-side role check and is accessible only to users with the `admin` role.
+
+---
+
+# 🖥️ Admin Panel
+
+Administrators have access to an additional Administration page.
+
+The Admin Panel displays:
+
+* Authenticated username
+* Current role
 * Session status
 * Authentication status
-* bcrypt password hashing status
+* Password hashing status
 * JWT authentication status
 * Role-based authorization status
-* JWT expiration configuration
+* JWT session configuration
 * Secret management status
 * Application health
-* Access-control overview
+* Access-control information
 * Session information
 * Logout functionality
 
+The Admin Panel is intended to demonstrate administrative access control within the application.
+
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technology Stack
 
-### Programming & Data Analysis
+## Programming
 
 * **Python**
+
+## Data Processing
+
 * **Pandas**
-* **NumPy**
 
-### Data Visualization
+## Data Visualization
 
-* **Matplotlib**
-* **Seaborn**
 * **Plotly**
 
-### Statistical & Machine Learning
-
-* **Scikit-learn**
-* Linear Regression
-* MinMaxScaler
-* Statistical analysis
-* Correlation analysis
-* IQR-based outlier detection
-
-### Dashboard
+## Dashboard
 
 * **Streamlit**
 
-### Security
+## Authentication & Security
 
 * **bcrypt**
 * **PyJWT**
@@ -333,61 +331,68 @@ The administrator panel provides system and access information, including:
 * Role-Based Access Control (RBAC)
 * Streamlit Secrets
 
-### Development Tools
+## Development Tools
 
-* Git
-* GitHub
-* VS Code
+* **Git**
+* **GitHub**
+* **VS Code**
 
+## Deployment
 
-
-## 💡 Key Insights
-
-The analysis highlights several patterns in student performance:
-
-* Attendance is an important indicator of academic performance, but it should not be considered in isolation.
-* Study time and LMS engagement can provide additional context when evaluating student performance.
-* Correlation analysis helps identify relationships between engagement factors and final grades.
-* Students in the medium-risk category can represent important intervention targets.
-* Combining multiple academic indicators provides a better understanding of student performance than relying on a single metric.
+* **Streamlit Cloud**
 
 ---
 
-## 🚀 Running the Project Locally
 
-### 1. Clone the repository
+
+### Important
+
+Local Streamlit secrets should be stored separately:
+
+```text
+.streamlit/
+└── secrets.toml
+```
+
+The `secrets.toml` file should **never be committed to GitHub**.
+
+---
+
+# 🚀 Running the Project Locally
+
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/kav-26/Student-Performance-Dashboard.git
 ```
 
-### 2. Navigate to the project directory
+## 2. Navigate to the project
 
 ```bash
 cd Student-Performance-Dashboard
 ```
 
-### 3. Create a virtual environment
+## 3. Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-### 4. Activate the virtual environment
+## 4. Activate the virtual environment
 
-**Windows PowerShell:**
+### Windows PowerShell
 
 ```powershell
 venv\Scripts\Activate.ps1
 ```
 
-### 5. Install dependencies
+## 5. Install dependencies
 
 ```bash
-pip install streamlit pandas numpy plotly matplotlib seaborn scikit-learn bcrypt PyJWT
+pip install -r requirements.txt
 ```
 
-### 6. Configure Streamlit Secrets
+## 6. Configure Streamlit Secrets
 
 Create:
 
@@ -395,74 +400,155 @@ Create:
 .streamlit/secrets.toml
 ```
 
-and configure the required JWT and user authentication settings.
+and add the required JWT and user authentication configuration.
 
-**Do not commit this file to GitHub.**
+Example structure:
 
-### 7. Run the dashboard
+```toml
+JWT_SECRET_KEY = "your-secret-key"
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRATION_MINUTES = 30
+
+[users.admin]
+password_hash = "your-admin-bcrypt-hash"
+role = "admin"
+
+[users.analyst]
+password_hash = "your-analyst-bcrypt-hash"
+role = "analyst"
+```
+
+**Never commit `secrets.toml` to GitHub.**
+
+## 7. Run the application
 
 ```bash
 python -m streamlit run app.py
 ```
 
-The dashboard will then be available locally through Streamlit.
+The application will open in your browser.
 
 ---
 
-## 🔒 Security Considerations
+# 🌐 Deployment
 
-This project implements application-level security controls, but it is intended as an educational and portfolio project rather than a production-grade authentication system.
+The application is deployed using **Streamlit Cloud**.
 
-Security measures include:
+### Live Application
 
-* Password hashing instead of plaintext password storage
+🔗 https://kav-26-student-performance-dashboard-app-ghfwnu.streamlit.app/
+
+The deployment uses Streamlit Secrets for sensitive configuration such as:
+
+* JWT secret key
+* User password hashes
+* Authentication configuration
+
+Sensitive credentials are therefore kept outside the public GitHub repository.
+
+---
+
+# 🔒 Security Considerations
+
+This project demonstrates application-level security practices and is intended as an educational and portfolio project rather than a production-grade authentication system.
+
+Implemented controls include:
+
+* Password hashing rather than plaintext password storage
 * JWT signature verification
 * JWT expiration
 * Role-based authorization
 * Externalized secrets
-* Generic login error messages
-* Sensitive configuration excluded from Git
+* Generic authentication error messages
+* Sensitive configuration excluded from version control
 
-For production deployment, additional controls such as HTTPS, secure cookie/session management, centralized identity management, rate limiting, audit logging, CSRF protection where applicable, and a production database would be appropriate.
+For a production application, additional security measures would be appropriate, including:
+
+* HTTPS enforcement
+* Secure session and cookie management
+* Centralized identity management
+* Rate limiting
+* Audit logging
+* CSRF protection where applicable
+* Production-grade database and user management
+* More comprehensive monitoring and security testing
 
 ---
 
-## 🎯 Skills Demonstrated
+# 💡 Key Insights
 
-This project demonstrates practical experience in:
+The dashboard is designed to help identify patterns such as:
 
-* Python programming
-* Data cleaning
-* Data preprocessing
-* Exploratory Data Analysis (EDA)
-* Descriptive statistics
-* Statistical analysis
-* Outlier detection
-* Feature engineering
-* Correlation analysis
-* Data visualization
-* Matplotlib
-* Seaborn
-* Plotly
-* NumPy
+* Students with lower attendance may require closer monitoring.
+* Study time and LMS engagement can provide additional context when evaluating academic performance.
+* Final grades can vary considerably within the same risk category.
+* Medium-risk students can serve as an important early-intervention group.
+* Combining multiple academic indicators provides a broader view of student performance.
+
+These observations should be interpreted in the context of the available dataset rather than treated as universal conclusions.
+
+---
+
+
+# 🔮 Future Enhancements
+
+Possible future improvements include:
+
+* Database integration instead of CSV-based storage
+* Advanced student search
+* Downloadable analytical reports
+* Additional performance KPIs
+* Historical performance tracking
+* More advanced statistical analysis
+* Predictive performance modeling
+* Automated notifications for high-risk students
+* More granular administrative controls
+* Audit logging
+* Improved session management
+* Cloud database integration
+* More comprehensive automated testing
+
+---
+
+# 📌 Skills Demonstrated
+
+This project demonstrates practical experience with:
+
+* Python
 * Pandas
-* Linear Regression
-* Machine Learning fundamentals
-* Interactive dashboard development
+* Data analysis
+* Data filtering and transformation
+* Data visualization
+* Interactive dashboards
+* Plotly
 * Streamlit
-* Authentication
+* Risk classification
+* Correlation analysis
+* Application authentication
 * JWT
 * bcrypt
 * Role-Based Access Control
-* Git and GitHub
+* Secrets management
+* Git
+* GitHub
+* Cloud deployment
 
 ---
 
-## 📌 Conclusion
+# 📄 Conclusion
 
-The Student Performance Analytics Dashboard demonstrates how Python-based data analytics and visualization can transform raw academic data into actionable insights.
+The **Student Performance Analytics Dashboard** demonstrates how raw academic data can be transformed into an interactive application for exploring student performance and identifying potential academic risks.
 
-By combining **EDA, statistical analysis, correlation analysis, predictive modeling, interactive visualization, and risk classification**, the project provides a comprehensive approach to understanding student performance.
+The project combines **data processing, interactive visualization, risk classification, dashboard development, authentication, authorization, and cloud deployment** into a single application.
 
-The addition of **JWT authentication, bcrypt password hashing, and role-based authorization** also demonstrates an understanding of securing analytical applications beyond the data-analysis layer.
+By deploying the dashboard through Streamlit Cloud, the project is accessible as a live web application while sensitive authentication configuration remains separated from the public source code.
+
+---
+
+## 👩‍💻 Author
+
+**Anjani Kavya**
+
+GitHub: https://github.com/kav-26
+
 
